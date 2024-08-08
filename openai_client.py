@@ -12,8 +12,11 @@ client = OpenAI(
     api_key=os.getenv('API_KEY'),
 )
 
+# Read the model from the .env file or use the default value 'gpt-4o' if not provided
+DEFAULT_MODEL = "gpt-4o"
+model = os.getenv('MODEL', DEFAULT_MODEL)
 
-def improve_text(text, user_prompt, system_prompt, max_tokens, model="gpt-4o", temperature=0.7):
+def improve_text(text, user_prompt, system_prompt, max_tokens, model=model, temperature=0.7):
     """
     Improve the given text using OpenAI API.
 
